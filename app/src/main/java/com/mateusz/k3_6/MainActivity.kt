@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         findViewById<Button>(R.id.button1).setOnClickListener {
             var x=0
             for (i in numbers)
@@ -79,11 +77,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.button2).setOnClickListener {
-            //val list = bubbleSort(numbers)
             var lista = ""
             var lista2 = ""
-            var lista3 = ""
-            var x = 0
             if(findViewById<Switch>(R.id.switch1).isChecked == true){
                 lista = lista + findViewById<Switch>(R.id.switch1).text.toString()
             }
@@ -111,25 +106,23 @@ class MainActivity : AppCompatActivity() {
             if(findViewById<Switch>(R.id.switch9).isChecked == true){
                 lista = lista + findViewById<Switch>(R.id.switch9).text.toString()
             }
-            findViewById<TextView>(R.id.textView).text = lista
 
-            for (i in numbers)
-            {
-                lista2 = lista2 + i.toString() + ","
-            }
+            val numbers2 = IntArray(lista.length){0}
 
-            val numbers2 = arrayOfNulls<Int>(lista.length)
             for (i in 0 until lista.length)
             {
                 numbers2[i]= lista[i].toString().toInt()
             }
 
             val list = bubbleSort(numbers2)
+
             for (i in numbers2)
             {
-                lista3 = lista3 + i.toString() + ","
+                lista2 = lista2 + i.toString() + ","
             }
-            findViewById<TextView>(R.id.textView2).text = lista3
+
+            findViewById<TextView>(R.id.textView2).text = "Sbai Yassine"
+            findViewById<TextView>(R.id.textView).text = lista2
         }
 
     }
